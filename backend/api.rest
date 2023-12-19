@@ -1,0 +1,87 @@
+# Create a new user 
+POST http://localhost:3000/signup HTTP/1.1
+Content-Type: application/json
+
+{
+  "userName": "JohnDoe",
+  "password": "mySecurePassword",
+  "email": "john1@example.com",
+  "phoneNumber": "2234567891"
+}
+
+###
+# Sign in with user credentials
+POST http://localhost:3000/signin HTTP/1.2
+Content-Type: application/json
+
+{
+  "email": "john1@example.com",
+  "password": "mySecurePassword"
+}
+
+
+###
+# Get all users
+GET http://localhost:3000/users HTTP/1.1
+
+###
+
+# Get a user by ID 
+GET http://localhost:3000/users/6580dd3cd2b4ad875ec69d93 HTTP/1.1
+
+###
+
+# Update user information by ID
+PATCH http://localhost:3000/users/6580dd3cd2b4ad875ec69d93 HTTP/1.1
+Content-Type: application/json
+
+{
+  "userName": "NewName",
+  "email": "newemail@example.com",
+  "password": "newSecurePassword",
+  "phoneNumber": "9876543211"
+}
+
+###
+
+# Add a contact to a user
+POST http://localhost:3000/contact/6580dd3cd2b4ad875ec69d93/addContact HTTP/1.1
+Content-Type: application/json
+
+{
+  "fullName": "contact3",
+  "email": "contact3@example.com",
+  "phoneNumber": "147852396",
+  "notes": "contact3"
+}
+
+###
+
+# Get contacts of a user by ID
+GET http://localhost:3000/contact/6580dd3cd2b4ad875ec69d93 HTTP/1.1
+
+###
+
+# Get a contact of a user by user ID and phone number  
+GET http://localhost:3000/contact/6580dd3cd2b4ad875ec69d93/147852396 HTTP/1.1
+
+###
+
+# Update contact information by user ID and phone number
+PATCH http://localhost:3000/contact/6580dd3cd2b4ad875ec69d93/147852396 HTTP/1.1
+Content-Type: application/json
+
+{
+  "fullName": "UpdatedContactName",
+  "email": "updatedemail@example.com",
+  "notes": "UpdatedNotes"
+}
+
+###
+
+# Delete a contact by user ID and phone number 
+DELETE http://localhost:3000/contact/6580dd3cd2b4ad875ec69d93/147852396 HTTP/1.1
+
+###
+
+
